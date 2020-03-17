@@ -8,7 +8,7 @@
 // @homepageURL  https://github.com/PrimePlaya24/dl-site-scrubber
 // @supportURL   https://github.com/PrimePlaya24/dl-site-scrubber/issues
 // @updateURL    https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/scripts/SiteScrubber-file-up.meta.js
-// @downloadURL  https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/scripts/SiteScrubber-file-up.user.js
+// @downloadURL  https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/scripts/SiteScrubber-File-Up.user.js
 // @match        https://www.file-up.org/*
 // @require      https://code.jquery.com/jquery-1.9.1.min.js
 // @run-at       document-body
@@ -18,12 +18,12 @@
 
 (function() {
     'use strict';
-
+    // Modified site's function to auto show the download button immediately
     $(document).ready(function() {
         $('#countdown').each(function(i, e) {
             var downloadbtn = $(e).parent().find('.downloadbtn');
             $(downloadbtn).attr('disabled', false);
-            $(e).css('visibility', 'hidden');
+            $(e).css('visibility', 'visible');
             $('.downloadbtn').attr('disabled', false);
         });
     });
@@ -38,7 +38,7 @@
             scripts[l].remove();
         }
     }
-
+    // Remove crap not needed
     $("header").remove();
     $(".breaking-news").remove();
     $("footer").remove();
@@ -73,6 +73,7 @@
 
     $("#downloadbtn").removeAttr("disabled");
 
+    // Auto function to keep checking for and removing iFrames from popping up
     setInterval(clean, 1000);
     function clean() {
         $("#downloadbtn").removeAttr("disabled");
@@ -83,6 +84,7 @@
             }
         }
 
+        // Remove all scripts that are not from google
         var y = $("script");
         for (var s = 0; s < y.length; s++) {
             if (!y[s].src.includes("google")) {
@@ -90,6 +92,7 @@
             }
         }
 
+        // Set functions to "undefined" so that they cannot run and cause ads and crap
         window.WOW = undefined
         window.eve = undefined
         window.mina = undefined
