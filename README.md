@@ -5,7 +5,7 @@ SiteScrubber is specifically made for various download sites that have you wait 
 
 # Setup
 1. Install https://www.tampermonkey.net/
-2. Choose script to install from <a href"https://github.com/PrimePlaya24/dl-site-scrubber/blob/master/INSTALL.md">INSTALL.md</a>
+2. Choose script to install from <a href="https://github.com/PrimePlaya24/dl-site-scrubber/blob/master/INSTALL.md">INSTALL.md</a>
 
 # List of Supported Sites [Updated 2020-03-18]
 uploadrar.com, upload.ac, file-up.org, dropapk.to, DropGalaxy.com, Up-Load.io
