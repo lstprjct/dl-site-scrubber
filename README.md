@@ -4,5 +4,5 @@ Project intended to make QOL scripts to scrub a list of file-hosting sites downl
 # Setup
 Install https://www.tampermonkey.net/
 
-# List of Supported Sites [Updated 2020-03-17]
-uploadrar.com, upload.ac, file-up.org, dropapk.to
+# List of Supported Sites [Updated 2020-03-18]
+uploadrar.com, upload.ac, file-up.org, dropapk.to, DropGalaxy.com, Up-Load.io
