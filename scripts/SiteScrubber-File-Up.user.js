@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         SiteScrubber - File-Up
 // @namespace    SiteScrubber
-// @version      0.1
-// @description  Scrub site of ugliness and ease the process of downloading
+// @version      0.2
+// @description  Scrub site of ugliness and ease the process of downloading from File-Up.org
 // @author       PrimePlaya24
 // @icon         https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/icons/file-up_favicon.png
 // @homepageURL  https://github.com/PrimePlaya24/dl-site-scrubber
@@ -11,84 +11,147 @@
 // @downloadURL  https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/scripts/SiteScrubber-File-Up.user.js
 // @match        https://www.file-up.org/*
 // @require      https://code.jquery.com/jquery-1.9.1.min.js
-// @run-at       document-body
+// @run-at       document-start
 // @grant        none
 // ==/UserScript==
 
 
 (function() {
     'use strict';
-    // Modified site's function to auto show the download button immediately
+
+    window.tick = 4;
+    window.submit_form = function submit_form() {
+        // clearTimeout(timeout);
+        // var remaining = 3;
+        var timeout = setTimeout(ticky, 1000);
+		function ticky() {
+			var remaining = window.tick - 1;
+            window.tick = remaining;
+			if(remaining <= 0)
+			{
+				$("form[name='F1']")[0].submit();
+			}
+			else
+			{
+				$("#downloadbtn").text("Submitting in: " + remaining.toString());
+				setTimeout(ticky, 1000);
+			}
+		}
+    }
+
+    // styling
     $(document).ready(function() {
-        $('#countdown').each(function(i, e) {
+        $("body > section > div > div").css("background-color", "#323232");
+        $("body > section").css("background-color", "#212121");
+        $("body").css("background-color", "#121212");
+        $("html").css("background-color", "#121212");
+        $("body").css("color", "white");
+    });
+
+    $(document).ready(function() {
+        // Clicks the "FREE" method instantly
+        if ($("input[name='method_free']")[0]) {
+            $("input[name='method_free']")[0].click();
+        }
+    });
+
+
+    $(document).ready(function() {
+        if ($("#downloadbtn")[0]) {
+
+            for (var i = 0; i < $("div").length; i++) {
+                if ($("div")[i].style.cssText == "margin: 10px 0px;") {
+                    $($("div")[i]).text("You have to wait for the timer to complete otherwise the server will reject your early request, sadly.")
+                $($("div")[i]).addClass("alert alert-warning");
+                }
+            }
+
+            $("#downloadbtn").css("font-size", "35px");
+
+            // $("div.alert.alert-danger").remove(); // Need to show what the user did wrong (i.e. Skipped countdown)
+            $("body > section > div > div.page-wrap > div.text-center").remove();
+            $("body > section > div > div.page-wrap > div.row").remove();
+            $("body > section > div > div.page-wrap > div.leftcol").remove();
+            $("body > section > div > div.page-wrap > form > div:nth-child(8)").remove();
+            $("body > section > div > div.row").remove();
+            $("body > section > div > h1").remove();
+
+            $("body > section > div > div > form > div > div > div.captcha-wrap").append($("<div class=\"alert alert-warning\">TO PREVENT MALICIOUS REDIRECT, <b>HOVER</b> OVER THE BUTTON FOR 2 SECONDS TO SUBMIT CLEANLY</div>"));
+
+            $("#downloadbtn").text("HOVER to SUBMIT Safely");
+
+            $("#downloadbtn").mouseenter(function () {
+                $(this).data('timeout', setTimeout(function () {
+                    submit_form();
+                }, 2000));
+            }).mouseleave(function () {
+                clearTimeout($(this).data('timeout'));
+            });
+        } else {
+            $("#download-btn").css("font-size", "35px").text("HOVER (2 secs) to DOWNLOAD");
+            $("#download-btn")[0].click();
+            $("#download-btn").mouseenter(function () {
+                $(this).data('timeout', setTimeout(function () {
+                    $("#download-btn")[0].click();;
+                }, 2000));
+            }).mouseleave(function () {
+                clearTimeout($(this).data('timeout'));
+            });
+            $("div.blocktxt").remove();
+            $("center").remove();
+            $("body > section > div > div > div:nth-child(5)").remove();
+            // $("div.page-wrap > div.text-center").remove();
+            $("body > section > div > div > div:nth-child(4)").remove();
+        }
+
+    });
+
+	setInterval(clean, 250);
+    function clean() {
+		/*
+
+		Clean function that can be used on any part of the download process
+
+		*/
+
+        // Remove crap not needed
+        $("header").remove();
+        $(".breaking-news").remove();
+        $("footer").remove();
+        $("#fb-root").remove();
+        $(".page-buffer").remove();
+        $("noscript").remove();
+        $(".abtlikebox").remove();
+        $("ins").remove();
+        $(".scrollToTop").remove();
+        $("style").remove();
+        $("#adblockinfo").remove();
+        $("#google_esf").remove();
+        $("#bannerad").remove();
+        $(".adsbox").remove();
+        $("div.blocktxt").remove();
+
+
+        $('#countdown').each(function(i, e){
             var downloadbtn = $(e).parent().find('.downloadbtn');
             $(downloadbtn).attr('disabled', false);
             $(e).css('visibility', 'visible');
             $('.downloadbtn').attr('disabled', false);
+            //$(e).find(".seconds").text("0");
         });
-    });
 
-    //$("script").remove();
-
-    // deloplen.com
-
-    var scripts = $("script");
-    for (var l = 0; l < scripts.length; l++) {
-        if (scripts[l].src.includes("deloplen")) {
-            scripts[l].remove();
-        }
-    }
-    // Remove crap not needed
-    $("header").remove();
-    $(".breaking-news").remove();
-    $("footer").remove();
-    $("#fb-root").remove();
-    $(".page-buffer").remove();
-    //$(".row").remove();
-
-    // setTimeout(function() {$("iframe").remove();}, 1750);
-
-    $(".abtlikebox").remove();
-    $("ins").remove();
-    $(".scrollToTop").remove();
-    $("style").remove();
-    $("#adblockinfo").remove();
-    /*
-    setTimeout(function() {$("#adblockinfo").remove();}, 3000);
-    $(".adsbox").remove();
-    $("h1").remove();
-    $("body").append($("form")[0]);
-    $("body").children("div").remove();
-    $("body").children("section").remove();
-    $("body > div").remove();
-    setTimeout(function() {$("form").children("div")[1].remove();}, 5000);
-
-    var timeout; // jQ mobile kludge to prevent double-calling*/
-
-    $(document).ready(function() {
-        $('.downloadbtn').attr('disabled', false);
-        $("#downloadbtn").removeAttr("disabled");
-    });
-
-
-    $("#downloadbtn").removeAttr("disabled");
-
-    // Auto function to keep checking for and removing iFrames from popping up
-    setInterval(clean, 1000);
-    function clean() {
-        $("#downloadbtn").removeAttr("disabled");
-        var t = $("iframe");
-        for (var k = 0; k < t.length; k++) {
-            if (!t[k].src.includes("google")) {
-                t[k].remove();
+        var iframes = $("iframe");
+        for (var k = 0; k < iframes.length; k++) {
+            if (!iframes[k].src.includes("google")) {
+                iframes[k].remove();
             }
         }
 
         // Remove all scripts that are not from google
-        var y = $("script");
-        for (var s = 0; s < y.length; s++) {
-            if (!y[s].src.includes("google")) {
-                y[s].remove();
+        var scripts = $("script");
+        for (var s = 0; s < scripts.length; s++) {
+            if (!scripts[s].src.includes("google")) {
+                scripts[s].remove();
             }
         }
 
@@ -154,4 +217,6 @@
         window.google_image_requests = undefined
         window.ppuWasShownFor2572202 = undefined
     }
+
+
 })();
