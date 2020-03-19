@@ -10,10 +10,10 @@ SiteScrubber is specifically made for various download sites that have you wait 
 # List of Supported Sites [Updated 2020-03-19]
 uploadrar.com</br>
 upload.ac</br>
-file-up.org</br>
 dropapk.to</br>
 DropGalaxy.com</br>
 Up-Load.io</br>
 File-Up.org</br>
+MixLoads.com.org</br>
 </br>
 <i><b>more coming soon...</b></i>
