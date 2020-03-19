@@ -8,12 +8,12 @@ SiteScrubber is specifically made for various download sites that have you wait 
 2. Choose script to install from <a href="https://github.com/PrimePlaya24/dl-site-scrubber/blob/master/INSTALL.md">INSTALL.md</a>
 
 # List of Supported Sites [Updated 2020-03-19]
-uploadrar.com</br>
-upload.ac</br>
-dropapk.to</br>
+UploadRAR.com</br>
+Upload.ac</br>
+DropAPK.to</br>
 DropGalaxy.com</br>
 Up-Load.io</br>
 File-Up.org</br>
-MixLoads.com.org</br>
+MixLoads.com</br>
 </br>
 <i><b>more coming soon...</b></i>
