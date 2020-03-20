@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SiteScrubber - Up-Load.io
 // @namespace    SiteScrubber
-// @version      0.1
+// @version      0.2
 // @description  Scrub site of ugliness and ease the process of downloading
 // @author       PrimePlaya24
 // @icon         https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/icons/Up-Load.io_favicon.png

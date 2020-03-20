@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SiteScrubber - Up-Load.io
 // @namespace    SiteScrubber
-// @version      0.1
+// @version      0.2
 // @description  Scrub site of ugliness and ease the process of downloading
 // @author       PrimePlaya24
 // @icon         https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/icons/Up-Load.io_favicon.png
@@ -18,6 +18,16 @@
 
 (function() {
     'use strict';
+
+    // styling
+    $(document).ready(function() {
+        $("div.info").css("background-color", "#323232");
+        $("body > #container").css("background-color", "#212121");
+        $("body").css("background-color", "#121212");
+        $("html").css("background-color", "#121212");
+        $("body").css("color", "white");
+        $("span.dfilename").css("color", "#999999");
+    });
 
 
     // window.onbeforescriptexecute = (e) => {
@@ -56,6 +66,18 @@
             $('.downloadbtn').attr('disabled', false);
             $("#downloadbtn").css("visibility", "visible");
 
+            $("#downloadbtn").css("font-size", "35px").text("HOVER (2 secs) to DOWNLOAD");
+
+            $("#downloadbtn").mouseenter(function () {
+                $(this).data('timeout', setTimeout(function () {
+                    $("#downloadbtn")[0].click();;
+                }, 2000));
+            }).mouseleave(function () {
+                clearTimeout($(this).data('timeout'));
+            });
+
+
+
             $("#container > div > div.col-md-8.text-center").remove();
             $("#container > div > div.col-md-4.text-center").remove();
             $("#container > div > div.clearfix").remove();
@@ -80,6 +102,13 @@
 
             $("body > div:nth-child(3)").remove();
             $("body > span").remove();
+            $("div.share").remove();
+            $("span.report").remove();
+            $("div.ads").remove();
+            $("div.adsbox").remove();
+            $("#container > div > div > div:nth-child(4)").remove();
+            $("#container").append($("<div class=\"alert alert-warning\">TO PREVENT MALICIOUS REDIRECT, <b>HOVER</b> OVER THE BUTTON FOR 2 SECONDS TO SUBMIT CLEANLY</div>"));
+
             window.s65c = undefined;
             window.ClipboardJS = undefined;
         }
@@ -88,7 +117,7 @@
 
     setInterval(function() {
         first_page();
-        // clean_scripts();
+        clean_scripts();
     }, 550);
 
 

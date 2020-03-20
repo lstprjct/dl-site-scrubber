@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         SiteScrubber - DropGalaxy
+// @name         SiteScrubber - DropGalaxy.in
 // @namespace    SiteScrubber
-// @version      0.1
-// @description  Scrub site of ugliness and ease the process of downloading
+// @version      0.2
+// @description  Scrub site of ugliness and ease the process of downloading DropGalaxy.in
 // @author       PrimePlaya24
 // @icon         https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/icons/DropGalaxy_favicon.png
 // @homepageURL  https://github.com/PrimePlaya24/dl-site-scrubber
