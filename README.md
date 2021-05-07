@@ -8,7 +8,7 @@ Many of the supported sites are widely used on the [Mobilism Forums](https://for
 
 # Setup
 1. Install [ViolentMonkey](https://violentmonkey.github.io/get-it/), [TamperMonkey](https://www.tampermonkey.net/), or [GreaseMonkey](https://www.greasespot.net/)
-2. Install the **SiteScrubber - All-in-One** script
+2. Install the **[SiteScrubber - All-in-One](https://greasyfork.org/en/scripts/426078-sitescrubber-all-in-one)** script
 3. PROFIT!!!!
 
 **Suggest you also install [uBlock Origin](https://github.com/gorhill/uBlock) as many of the supported sites are COVERED in Ads!**
