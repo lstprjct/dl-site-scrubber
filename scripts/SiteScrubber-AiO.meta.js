@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SiteScrubber - All-in-One
 // @namespace    SiteScrubber
-// @version      1.0.1
+// @version      1.0.2
 // @description  Scrub site of ugliness and ease the process of downloading from multiple sites!
 // @author       PrimePlaya24
 // @icon         https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/icons/SiteScrubber-aio_icon.png
