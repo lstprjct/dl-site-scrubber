@@ -7,8 +7,8 @@
 // @icon         https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/icons/SiteScrubber-aio_icon.png
 // @homepageURL  https://github.com/PrimePlaya24/dl-site-scrubber
 // @supportURL   https://github.com/PrimePlaya24/dl-site-scrubber/issues
-// @updateURL    https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/scripts/SiteScrubber-AiO-meta.js
-// @downloadURL  https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/scripts/SiteScrubber-AiO-user.js
+// @updateURL    https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/scripts/SiteScrubber-AiO.meta.js
+// @downloadURL  https://raw.githubusercontent.com/PrimePlaya24/dl-site-scrubber/master/scripts/SiteScrubber-AiO.user.js
 // @match        *://dropapk.to/*
 // @match        *://mixloads.com/*
 // @match        *://dropgalaxy.com/*
